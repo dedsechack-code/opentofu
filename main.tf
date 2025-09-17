@@ -9,7 +9,7 @@ terraform {
 
 
 provider "fortios" {
-  hostname   = "192.168.16.1"
+  hostname   = var.fortios_hostname
   token      = var.fortios_token
   insecure   = true
   vdom       = "root"
@@ -22,10 +22,11 @@ variable "fortios_token" {
 }
 
 # Minimal, harmless change: a test address object
-resource "fortios_firewall_address" "tofu_test_host" {
+resource "fortios_firewall_address" "tofu_test_host3" {
   name   = "tofu-test-host"
   type   = "ipmask"
-  subnet = "10.10.10.10/32"
+  subnet = "10.10.20.10/32"
   # If you didn't set provider.vdom above, add this line instead:
   # vdomparam = "root"
 }
+
