@@ -22,13 +22,14 @@ variable "fortios_token" {
 }
 
 # Minimal, harmless change: a test address object
-resource "fortios_firewall_address" "tofu_test_host5" {
-  name   = "tofu-test-host5"
+resource "fortios_firewall_address" "tofu_test_host6" {
+  name   = "tofu-test-host6"
   type   = "ipmask"
-  subnet = "10.10.50.10/32"
+  subnet = "10.10.60.10/32"
   # If you didn't set provider.vdom above, add this line instead:
   vdomparam = "root"
 }
+
 
 
 
