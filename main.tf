@@ -9,7 +9,6 @@ terraform {
 
 
 provider "fortios" {
-  hostname   = var.fortios_hostname
   token      = var.fortios_token
   insecure   = true
   vdom       = "root"
@@ -29,6 +28,7 @@ resource "fortios_firewall_address" "tofu_test_host7" {
   # If you didn't set provider.vdom above, add this line instead:
   vdomparam = "root"
 }
+
 
 
 
