@@ -7,13 +7,8 @@ terraform {
   }
 }
 
-
-provider "fortios" {
-  hostname   = "192.168.16.1"
-  token      = var.fortios_token
-  insecure   = true
-  vdom       = "root"
-  http_proxy = ""   # force provider to avoid proxies
+variable "fortios_hostname" { 
+  type = string 
 }
 
 variable "fortios_token" {
@@ -21,11 +16,30 @@ variable "fortios_token" {
   sensitive = true
 }
 
-# Minimal, harmless change: a test address object
-resource "fortios_firewall_address" "tofu_test_host" {
-  name   = "tofu-test-host"
-  type   = "ipmask"
-  subnet = "10.10.10.10/32"
-  # If you didn't set provider.vdom above, add this line instead:
-  # vdomparam = "root"
+provider "fortios" {
+  hostname   = var.fortios_hostname
+  token      = var.fortios_token
+  insecure   = true
+  vdom       = "root"
+  http_proxy = ""   # force provider to avoid proxies
 }
+
+# Minimal, harmless change: a test address object
+resource "fortios_firewall_address" "tofu_test_host10" {
+  name   = "tofu-test-host7"
+  type   = "ipmask"
+  subnet = "10.10.100.10/32"
+  # If you didn't set provider.vdom above, add this line instead:
+  vdomparam = "root"
+}
+
+
+
+
+
+
+
+
+
+
+
