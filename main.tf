@@ -33,6 +33,15 @@ resource "fortios_firewall_address" "tofu_test_host10" {
   vdomparam = "root"
 }
 
+### Add Addresses Below ###
+resource "fortios_firewall_address" "" { ### Add Name Module
+  name   = "" ### Change Name
+  type   = "ipmask"
+  subnet = "/32" ### Add Subnet ###
+  # If you didn't set provider.vdom above, add this line instead:
+  # vdomparam = "root"
+}
+
 
 
 
